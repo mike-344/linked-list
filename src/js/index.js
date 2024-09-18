@@ -54,9 +54,17 @@ function linkedList(){
         str += ` null`
         return str;
     }
+    let pop = () =>{
+       let current = getHead()
+       while(current.next !== tail){
+        current = current.next
+       }
+       current.next = null
+       tail = current
+    }
 
 
-    return {append, prepend, size, getHead, getTail, at, toString}
+    return {append, prepend, size, getHead, getTail, at, toString, pop}
 
 }
 
@@ -67,7 +75,10 @@ return {value, next}
 }
 
 let theList = linkedList();
-theList.append("the")
 
 
-console.log(theList.at(0))
+
+theList.pop()
+
+
+console.log(theList.toString())
