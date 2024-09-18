@@ -10,7 +10,7 @@ function linkedList(){
         head = newNode;
         tail = newNode;
         } else{
-            tail.nextNode = newNode
+            tail.next = newNode
             tail = newNode
         }
         length++
@@ -21,7 +21,7 @@ function linkedList(){
             head = newNode
             tail = newNode
         } else{
-        newNode.nextNode = head;
+        newNode.next = head;
         head = newNode
         }
         length++;
@@ -39,26 +39,35 @@ function linkedList(){
         let current = head
         let count = 0
         while(count < index){
-            current = current.nextNode
+            current = current.next
             count++
         }
         return current
     }
+    let toString = () =>{
+        let str = ''
+        let current = getHead()
+        while (current){
+            str += `( ${current.value} ) ->`
+            current = current.next
+        }
+        str += ` null`
+        return str;
+    }
 
 
-    return {append, prepend, size, getHead, getTail, at}
+    return {append, prepend, size, getHead, getTail, at, toString}
 
 }
 
-function Node(value = null, nextNode = null){
+function Node(value = null, next = null){
  
 
-return {value, nextNode}
+return {value, next}
 }
 
 let theList = linkedList();
 theList.append("the")
-theList.append("buh")
-theList.append("aha")
-theList.prepend("first")
-console.log(theList)
+
+
+console.log(theList.at(0))
