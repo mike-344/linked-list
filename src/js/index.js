@@ -36,7 +36,7 @@ function linkedList(){
         return tail;
     }
     let at = (index) =>{
-        let current = head
+        let current = getHead();
         let count = 0
         while(count < index){
             current = current.next
@@ -61,10 +61,23 @@ function linkedList(){
        }
        current.next = null
        tail = current
+       length--
+       
+    }
+    let contains = (value) =>{
+        let current = getHead()
+        while (current){
+           if (current.value === value){
+            return true
+           }
+           current = current.next
+           
+        }
+        return false
     }
 
 
-    return {append, prepend, size, getHead, getTail, at, toString, pop}
+    return {append, prepend, size, getHead, getTail, at, toString, pop, contains}
 
 }
 
@@ -76,9 +89,11 @@ return {value, next}
 
 let theList = linkedList();
 
+theList.append("the")
+theList.append("ab")
+theList.append("haha")
 
 
-theList.pop()
 
 
-console.log(theList.toString())
+console.log(theList.contains("haha"))
