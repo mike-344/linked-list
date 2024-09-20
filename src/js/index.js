@@ -76,8 +76,22 @@ function linkedList(){
         return false
     }
 
+    let find = (value) =>{
+        let counter = 0;
+        let current = getHead()
+        while (current){
+           if (current.value === value){
+            return counter
+           }
+           current = current.next
+           counter++
+           
+        }
+        return null
+    }
 
-    return {append, prepend, size, getHead, getTail, at, toString, pop, contains}
+
+    return {append, prepend, size, getHead, getTail, at, toString, pop, contains, find}
 
 }
 
@@ -89,11 +103,6 @@ return {value, next}
 
 let theList = linkedList();
 
-theList.append("the")
-theList.append("ab")
-theList.append("haha")
 
 
 
-
-console.log(theList.contains("haha"))
