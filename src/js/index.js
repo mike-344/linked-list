@@ -101,8 +101,14 @@ function Node(value = null, next = null){
 return {value, next}
 }
 
-let theList = linkedList();
+let list = linkedList();
 
-
+list.append("dog");
+list.append("cat");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
+console.log(list.toString())
 
 
